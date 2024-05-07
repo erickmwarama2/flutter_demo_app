@@ -26,6 +26,11 @@ class ScaffoldExample extends StatelessWidget {
         ],
       ),
       // body: const Center(child: Text("Hello Again"),),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.lightGreenAccent,
+        child: const Icon(Icons.add_location_rounded),
+        onPressed: () => {},
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
