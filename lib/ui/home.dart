@@ -38,7 +38,8 @@ class ScaffoldExample extends StatelessWidget {
                 style: TextStyle(fontSize: 23.4),
               ),
               onTap: () => debugPrint("tapped..."),
-            )
+            ),
+            const CustomButton()
           ],
         ),
       ),
@@ -53,7 +54,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        const snackBar = SnackBar(content: Text("Hello again!!!"));
+        const snackBar = SnackBar(content: Text("Hello again!!!"), backgroundColor: Colors.blueAccent,);
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
       },
       child: Container(
