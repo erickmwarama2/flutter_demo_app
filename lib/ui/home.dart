@@ -15,13 +15,55 @@ class ScaffoldExample extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.amberAccent.shade400,
         actions: [
-          IconButton(onPressed: () => debugPrint("Email tapped"), icon: const Icon(Icons.email)),
-          IconButton(onPressed: _tabButton, icon: const Icon(Icons.access_alarms)),
-          IconButton(onPressed: () => debugPrint("Account tapped"), icon: const Icon(Icons.account_balance_rounded)),
+          IconButton(
+              onPressed: () => debugPrint("Email tapped"),
+              icon: const Icon(Icons.email)),
+          IconButton(
+              onPressed: _tabButton, icon: const Icon(Icons.access_alarms)),
+          IconButton(
+              onPressed: () => debugPrint("Account tapped"),
+              icon: const Icon(Icons.account_balance_rounded)),
         ],
       ),
-      body: const Center(child: Text("Hello Again"),),
+      // body: const Center(child: Text("Hello Again"),),
       backgroundColor: Colors.redAccent.shade100,
+      body: Container(
+        alignment: Alignment.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            InkWell(
+              child: const Text(
+                "Tap Me",
+                style: TextStyle(fontSize: 23.4),
+              ),
+              onTap: () => debugPrint("tapped..."),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  const CustomButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        const snackBar = SnackBar(content: Text("Hello again!!!"));
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      },
+      child: Container(
+        padding: const EdgeInsets.all(10.0),
+        decoration: BoxDecoration(
+          color: Colors.pinkAccent,
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        child: const Text("Button"),
+      ),
     );
   }
 }
@@ -45,10 +87,9 @@ class Home extends StatelessWidget {
           "Hello Home Flutter",
           textDirection: TextDirection.ltr,
           style: TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 23.4,
-            fontStyle: FontStyle.italic
-          ),
+              fontWeight: FontWeight.w500,
+              fontSize: 23.4,
+              fontStyle: FontStyle.italic),
         ),
       ),
     );
