@@ -26,6 +26,15 @@ class ScaffoldExample extends StatelessWidget {
         ],
       ),
       // body: const Center(child: Text("Hello Again"),),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle), label: "First"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.ac_unit_outlined), label: "Second"),
+        ],
+        onTap: (int index) => debugPrint("Tapped item: $index"),
+      ),
       backgroundColor: Colors.redAccent.shade100,
       body: Container(
         alignment: Alignment.center,
@@ -54,7 +63,10 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        const snackBar = SnackBar(content: Text("Hello again!!!"), backgroundColor: Colors.blueAccent,);
+        const snackBar = SnackBar(
+          content: Text("Hello again!!!"),
+          backgroundColor: Colors.blueAccent,
+        );
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
       },
       child: Container(
